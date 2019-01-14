@@ -51,7 +51,7 @@ module.exports = app => {
             return parent.length ? parent[0] : null
         }
 
-        const categoriesWithpath = categories.map(category => {
+        const categoriesWithPath = categories.map(category => {
             let path = category.name
             let parent = getParent(categories, category.parentId)
 
@@ -63,13 +63,13 @@ module.exports = app => {
             return {...category, path }
         })
         
-        categoriesWithpath.sort((a, b) => {
-            if(a.path < b.path) return -1
-            if(a.path > b.path) return 1
-            return 0
-        })
+        categoriesWithPath.sort((a, b) => {
+          if (a.path < b.path) return -1;
+          if (a.path > b.path) return 1;
+          return 0;
+        });
 
-        return categoriesWithpath
+        return categoriesWithPath;
     }
 
     const get = (req, res) => {
